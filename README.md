@@ -6,7 +6,7 @@ Docker
 You can downlod docker for your sepcific platform and Operating System from this link:
 https://hub.docker.com/search?offering=community&q=&type=edition
 
-You will need to configure a relational database and uploadd data in the sample Excel file for the models to work.
+You will need to configure a relational database and upload data in "ProductDataForDB.xlsx" file for the models to work.
 
 
 To run this code:
