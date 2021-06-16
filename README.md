@@ -2,7 +2,8 @@
 
 Requirements:
 
-Docker
+**Docker
+
 You can downlod docker for your sepcific platform and Operating System from this link:
 https://hub.docker.com/search?offering=community&q=&type=edition
 
