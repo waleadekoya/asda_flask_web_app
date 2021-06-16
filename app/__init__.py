@@ -15,7 +15,6 @@ from control.config import ProductionConfig
 
 db = SQLAlchemy()
 nav = Nav()
-# logging.basicConfig(level=logging.INFO)
 
 
 def create_app():
@@ -30,7 +29,6 @@ def create_app():
     app.logger.setLevel(logging.INFO)
     # app.logger.addHandler(logg_handler)
 
-
     # Initialise the application database
     db.init_app(app)
 
@@ -39,32 +37,36 @@ def create_app():
     @nav.navigation()
     def nav_bar():
         return Navbar(
-            View('Home', 'home.home_page'),
+            View("Home", "home.home_page"),
             # Link('Descriptive Text', dest='https://www.url.com/'),
-            View('Admin Console', 'admin.index'),
-            View(f'{current_user.email}', endpoint='home.home_page'),
+            View("Admin Console", "admin.index"),
+            View(f"{current_user.email}", endpoint="home.home_page"),
             # View('Register', 'security.register'),
-            View('Products Home', 'products.list_all_products'),
-            View('Register New Product', 'products.add_product'),
-            View('Analytics', 'analytics.total_sales_by', key="department"),
-            View('Log Out', 'security.logout'),
-
+            View("Products Home", "products.list_all_products"),
+            View("Register New Product", "products.add_product"),
+            View("Analytics", "analytics.total_sales_by", key="department"),
+            View("Log Out", "security.logout"),
         )
 
     nav.init_app(app)
 
-
     @app.before_first_request
     def add_user():
         # from app.models import UserSesan
-
         user1 = User(email="xyz@yahoo.com", password=hash_password("password"))
         user2 = User(
             email="wale.adekoya@btinternet.com", password=hash_password("password")
         )
-        if (
-                not User.query.filter(User.email == "xyz@yahoo.com").first()
-                or not User.query.filter(User.email == "wale.adekoya@btinternet.com").first()
+        if all(
+            [
+                (User.query.filter(User.email == "xyz@yahoo.com").first() is None),
+                (
+                    User.query.filter(
+                        User.email == "wale.adekoya@btinternet.com"
+                    ).first()
+                    is None
+                ),
+            ]
         ):
             db.session.add(user1)
             db.session.add(user2)
@@ -85,6 +87,7 @@ def create_app():
         from .routes.home import home
         from .routes.product_view import product
         from .routes.analytics import analytics
+
         # from .routes.login_view import login
 
         # registering blueprints
@@ -99,6 +102,8 @@ def create_app():
         admin.add_view(ModelView(Product, db.session))
 
         # add custom views
-        admin.add_view(HomePageFromAdmin(name='Back To Main Page', endpoint='home.home_page'))
+        admin.add_view(
+            HomePageFromAdmin(name="Back To Main Page", endpoint="home.home_page")
+        )
 
     return app
