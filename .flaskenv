@@ -1,0 +1,5 @@
+FLASK_APP = app
+FLASK_DEBUG = True
+FLASK_RUN_PORT = 8000
+FLASK_ENV = production
+FLASK_DEBUG = 1

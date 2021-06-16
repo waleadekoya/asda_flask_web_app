@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Analytics</title>
+{#            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shakrmedia/petal@0.11.1/dist/petal.min.css">#}
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='table_style.css') }}">
+        <script></script>
+    </head>
+
+    <body>
+    <div class="container">
+
+        <div>
+            <a href="{{ url_for('analytics.total_sales_by', key='category') }}" style="float:left;text-align:center;" >Sales By Category</a>
+        </div>
+        <br>
+        <div>
+            <a href="{{ url_for('analytics.total_sales_by', key='product') }}" style="float:left;text-align:center;"> Sales By Product</a>
+        </div>
+        <br>
+        <div>
+            <a href="{{ url_for('analytics.total_sales_by', key='department') }}" style="float:left;text-align:center;" > Sales By Department</a>
+        </div>
+        <br>
+
+        <br>
+        <h4> Total Sales By {{ key.title() }}</h4>
+        {{ sales | safe }}
+
+    </div>
+
+
+    </body>
+{% endblock %}

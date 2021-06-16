@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{#    <head>#}
+{#        <meta charset="UTF-8">#}
+{#        <title>Home</title>#}
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='table_style.css') }}">
+{#        <script></script>#}
+{#    </head>#}
+
+<body>
+<div class="container">
+
+    <div class="container">
+        <label for="myInput"></label>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for products..">
+    </div>
+
+    <h1> Asda Product Listing </h1> <br>
+    {{ products | safe }}
+</div>
+
+<script>
+    function myFunction() {
+        // Declare variables
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        table = document.querySelector(".dataframe");
+        tr = table.querySelectorAll('tr');
+
+        // Loop through all list items (excluding header row), and hide those not matching the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].querySelector('td');
+            if (td) {
+                console.log(td.textContent);
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+
+        }
+    }
+</script>
+</body>
+{% endblock %}

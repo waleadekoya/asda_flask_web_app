@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "bootstrap/base.html" %}
+    {% import "bootstrap/wtf.html" as wtf %}
+    <meta charset="UTF-8">
+    <title>Asda Project</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='table_style.css') }}">
+
+    {% block styles %}
+        {{ super() }}
+        <style>
+            .navbar-default.navbar-nav> ul > li.active > a {
+                color: pink;
+
+            }
+            .navbar-default {
+                color: white;
+                font-weight: bold;
+                background-color: darkblue;
+            }
+            footer {
+                text-align: center;
+                padding: 3px;
+                background-color: DarkSalmon;
+                color: white;
+            }
+        </style>
+    {% endblock %}
+
+    {#https://stackoverflow.com/a/62226880#}
+
+
+    {% block navbar %}
+        <nav class="navbar navbar-dark bg-dark">
+            {{nav.nav_bar.render()}}
+        </nav>
+    {% endblock %}
+
+</head>
+<body>
+
+        {% block content %}
+
+        {% endblock %}
+
+
+</body>
+</html>
