@@ -1,5 +1,10 @@
 # flask_web_app_on_docker
 
+Run these commands from a terminal:
+
+1. Clone this repo: `git clone https://github.com/waleadekoya/flask_web_app_on_docker.git`
+2. Change directory: `cd flask_web_app_on_docker`
+
 ## Requirements:
 
 **Docker** must be installed.
@@ -12,15 +17,9 @@ Configure the database uri as class variable in this file: `"controls/config.py"
 
 Configure system environment variables in this file: `"controls/.env"` (not shared)
 
+**To build and run the flask server**:
 
-**To run this code**:
-
-Run these commands from a terminal:
-
-1. Clone this repo: `git clone https://github.com/waleadekoya/flask_web_app_on_docker.git`
-2. Change directory: `cd flask_web_app_on_docker`
-3. On Windows: click and run this file: `run_app.bat`
-4. On linux: `docker-compose up`
+3. On Windows: double-click this file: `run_app.bat` OR on ALL platforms use: `docker-compose up`
 
 
 Navigate to https://localhost:8041 on your browser.
