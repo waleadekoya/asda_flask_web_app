@@ -26,7 +26,6 @@ def find_user(email):
 
 
 class HomePageFromAdmin(BaseView):
-
-    @expose('/')
+    @expose("/")
     def index(self):
-        return redirect(url_for('home.home_page'))
+        return redirect(url_for("home.home_page"))
