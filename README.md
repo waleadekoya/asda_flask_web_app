@@ -19,4 +19,4 @@ Run these command from a terminal:
 4. On linux run this command: `docker-compose up`
 
 
-Navigate to https://localcost:8041 on your browser.
+Navigate to https://localhost:8041 on your browser.
