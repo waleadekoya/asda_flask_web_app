@@ -16,7 +16,7 @@ Run these commands from a terminal:
 1. Clone this repo: `git clone https://github.com/waleadekoya/flask_web_app_on_docker.git`
 2. Change directory: `cd flask_web_app_on_docker`
 3. On Windows: click and run this file: `run_app.bat`
-4. On linux run this command: `docker-compose up`
+4. On linux: `docker-compose up`
 
 
 Navigate to https://localhost:8041 on your browser.
