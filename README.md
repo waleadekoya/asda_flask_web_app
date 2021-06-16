@@ -11,7 +11,7 @@ You also need to configure a relational database and upload data in `"ProductDat
 
 **To run this code**:
 
-Run these command from a terminal:
+Run these commands from a terminal:
 
 1. Clone this repo: `git clone https://github.com/waleadekoya/flask_web_app_on_docker.git`
 2. Change directory: `cd flask_web_app_on_docker`
