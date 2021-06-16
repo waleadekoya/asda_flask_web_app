@@ -8,6 +8,10 @@ You can download and install docker instance specific to your platform and Opera
 
 You also need to configure a relational database and upload data in `"ProductDataForDB.xlsx"` file for the models to work.
 
+Configure the database uri in this file: `"controls/config.py"` (not shared)
+
+Configure the enviornment variables in this file: `"controls/.env"` (not shared)
+
 
 **To run this code**:
 
