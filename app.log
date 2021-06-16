@@ -1,0 +1,686 @@
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 65, in add_user
+    if User.query.filter(User.email == "wale.adekoya@btinternet.com").first() is not True:
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3203, in __getitem__
+    return list(res)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3534, in __iter__
+    self.session._autoflush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1633, in _autoflush
+    util.raise_(e, with_traceback=sys.exc_info()[2])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1622, in _autoflush
+    self.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$fKHdzskuqoKUcqin6Ktj6uMVMUsvOsGE36hsacE99qExLlS8x.chG', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 63, in add_user
+    is not True
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3203, in __getitem__
+    return list(res)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3534, in __iter__
+    self.session._autoflush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1633, in _autoflush
+    util.raise_(e, with_traceback=sys.exc_info()[2])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1622, in _autoflush
+    self.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$zZ.e1ozRWwjS4UGSqPK93ezJvIOz00lQXL33pEPe1WpG3N1pG6.lK', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 63, in add_user
+    ):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3203, in __getitem__
+    return list(res)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3534, in __iter__
+    self.session._autoflush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1633, in _autoflush
+    util.raise_(e, with_traceback=sys.exc_info()[2])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1622, in _autoflush
+    self.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$ew7r/Hf/BoL20X9MHOCsyO71HfUT8vITtIVHjTY7tfhJ.kHuyfAoC', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 63, in add_user
+    ):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3429, in first
+    ret = list(self[0:1])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3203, in __getitem__
+    return list(res)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\query.py", line 3534, in __iter__
+    self.session._autoflush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1633, in _autoflush
+    util.raise_(e, with_traceback=sys.exc_info()[2])
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1622, in _autoflush
+    self.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely)
+(pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$ezUueVYeUnjLLTJDG6YJ8.kx3LCyeoUg2zV85..tI6mHndRtGjILy', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 64, in add_user
+    db.session.commit()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1046, in commit
+    self.transaction.commit()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 504, in commit
+    self._prepare_impl()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$QeFiiZlPZnGRybILHHqxt.Nlc2A8DUrEszexomnuq1IcO6gKeArta', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
+ERROR:waitress:Exception while serving /
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\channel.py", line 350, in service
+    task.service()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 171, in service
+    self.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\waitress\task.py", line 441, in execute
+    app_iter = self.channel.server.application(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2464, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2450, in wsgi_app
+    response = self.handle_exception(e)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1867, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\flask\app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "C:\Users\Sesan\OneDrive\@Python_Projects\PythonTrainingSessions\flask_web_app\app\__init__.py", line 64, in add_user
+    db.session.commit()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 1046, in commit
+    self.transaction.commit()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 504, in commit
+    self._prepare_impl()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2540, in flush
+    self._flush(objects)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\session.py", line 2642, in _flush
+    flush_context.execute()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\orm\persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\sqlalchemy\engine\default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "c:\users\sesan\.virtualenvs\flask_web_app\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry 'xyz@yahoo.com' for key 'user.email'")
+[SQL: INSERT INTO user (email, username, password, active, confirmed_at) VALUES (%(email)s, %(username)s, %(password)s, %(active)s, %(confirmed_at)s)]
+[parameters: {'email': 'xyz@yahoo.com', 'username': None, 'password': '$2b$12$GJVD8igD/LY1hOZRt3O/0eMeHYJx204OGjRtmFRag.Sh.gASIF5va', 'active': None, 'confirmed_at': None}]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)
