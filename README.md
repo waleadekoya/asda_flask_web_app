@@ -3,10 +3,10 @@
 ## Requirements:
 
 **Docker** must be installed.
-You can download docker for your sepcific platform and Operating System from this link:
+You can download and install docker instance specific to your platform and Operating System from this link:
 [Docker Download](https://hub.docker.com/search?offering=community&q=&type=edition)
 
-You need to configure a relational database and upload data in `"ProductDataForDB.xlsx"` file for the models to work.
+You also need to configure a relational database and upload data in `"ProductDataForDB.xlsx"` file for the models to work.
 
 
 **To run this code**:
