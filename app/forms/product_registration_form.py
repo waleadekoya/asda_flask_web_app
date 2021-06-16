@@ -4,7 +4,9 @@ from wtforms.validators import DataRequired
 
 from app.models.product_category_model import ProductCategoryModel
 
-main_product_categories = [(item, item) for item in ProductCategoryModel.main_product_categories()]
+main_product_categories = [
+    (item, item) for item in ProductCategoryModel.main_product_categories()
+]
 l1_products = [(item, item) for item in ProductCategoryModel.l1_product_categories()]
 l2_products = [(item, item) for item in ProductCategoryModel.l2_product_categories()]
 l3_products = [(item, item) for item in ProductCategoryModel.l3_product_categories()]

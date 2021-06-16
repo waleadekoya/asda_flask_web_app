@@ -1,6 +1,9 @@
-from db_operations import connection, con
+from control.config import BaseConfig
 from .product_category_model import ProductCategoryModel
 import pandas as pd
+
+con = BaseConfig.con
+connection = BaseConfig.connection
 
 
 class ProductModel:

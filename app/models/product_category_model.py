@@ -1,5 +1,7 @@
-from db_operations import con
+from control.config import BaseConfig
 import pandas as pd
+
+con = BaseConfig.con
 
 
 class ProductCategoryModel:

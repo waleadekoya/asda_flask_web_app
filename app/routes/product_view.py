@@ -77,6 +77,3 @@ def get_product_category_level(lower_level: str, higher_level: str, value: str):
     else:
         result: list = [filtered]
     return jsonify({f"{higher_level}": sorted(result)})
-
-
-
